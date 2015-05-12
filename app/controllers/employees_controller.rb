@@ -6,6 +6,7 @@ class EmployeesController < ApplicationController
   def index
     @employees = Employee.all
     respond_with(@employees)
+    #@employees = Employee.paginate(page: params[:page])
   end
 
   def show

@@ -1,3 +1,5 @@
+<% provide(:title, 'Employees') %>
+
 <h1>List of Employees</h1>
 <div class="media">
   <div class="media-body">
@@ -21,8 +23,8 @@
             <td><%= employee.leaveAllowance %></td>
             <td><%= employee.jobType %></td>
             <td><%= employee.admin %></td>
-            <td><%= link_to 'Show', employee, :class => 'btn btn-default btn-sm' %></td>
-            <td><%= link_to 'Edit', edit_employee_path(employee), :class => 'btn btn-success btn-sm' %></td>
+            <td><%= link_to 'Show', employee, :class => 'btn btn-default btn-xs' %></td>
+            <td><%= link_to 'Edit', edit_employee_path(employee), :class => 'btn btn-success btn-xs' %></td>
             <td><%= link_to 'Destroy', employee, :class => 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
