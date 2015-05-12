@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firstname: MyString
+  lastname: MyString
+  leaveAllowance: 1
+  jobType: MyString
+  admin: false
+
+two:
+  firstname: MyString
+  lastname: MyString
+  leaveAllowance: 1
+  jobType: MyString
+  admin: false

@@ -1,0 +1,54 @@
+<h1>List of Employees</h1>
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th> Surname</th>
+          <th> Leave Allowance</th>
+          <th> Job Title</th>
+          <th> Admin</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @employees.each do |employee| %>
+          <tr>
+            <td><%= employee.firstname %></td>
+            <td><%= employee.lastname %></td>
+            <td><%= employee.leaveAllowance %></td>
+            <td><%= employee.jobType %></td>
+            <td><%= employee.admin %></td>
+            <td><%= link_to 'Show', employee, :class => 'btn btn-default btn-sm' %></td>
+            <td><%= link_to 'Edit', edit_employee_path(employee), :class => 'btn btn-success btn-sm' %></td>
+            <td><%= link_to 'Destroy', employee, :class => 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>  
+</div>
+<br>
+
+<%= link_to 'New Employee', new_employee_path, :class => 'btn btn-default'  %>
+
+
+<!-- for a nice listing paginated -->
+<%#= will_paginate @requests %>
+<!--<ul class="users">-->
+
+  <%#= render @requests.order(:user_id) %>
+  <!-- order by lastname -->
+  
+  <%#= render @users %>
+  <!-- line above acheives the same as the 3 below -->
+  
+  <%# @users.each do |user| %>
+    <%#= render user %>
+  <%# end %>
+  
+<!--</ul>-->
+
+<%#= will_paginate %>
