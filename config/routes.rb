@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :request_types
+
   root 'static_pages#home'
   resources :employees
    

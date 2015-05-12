@@ -1,0 +1,17 @@
+<% provide(:title, 'Show Request Type') %>
+
+<h1>Request Type</h1>
+<br>
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+    <p>
+      <strong>Description:&emsp;</strong>
+      <%= @request_type.description %>
+    </p>
+
+ </div>
+</div>
+<br>
+<%= link_to 'Edit', edit_request_type_path(@request_type), :class => 'btn btn-default' %>
+<%= link_to 'Back', request_types_path, :class => 'btn btn-default' %>

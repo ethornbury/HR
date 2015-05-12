@@ -1,0 +1,30 @@
+<% provide(:title, 'Request Types') %>
+
+<h1>List of Request Types</h1>
+<br>
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @request_types.each do |request_type| %>
+          <tr>
+            <td><%= request_type.description %></td>
+            <td><%= link_to 'Show', request_type, :class => 'btn btn-default btn-xs' %></td>
+            <td><%= link_to 'Edit', edit_request_type_path(request_type), :class => 'btn btn-success btn-xs' %></td>
+            <td><%= link_to 'Destroy', request_type, :class => 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>  
+</div>
+<br>
+
+<%= link_to 'New Request type', new_request_type_path, :class => 'btn btn-default' %>
