@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @request_all.type %>
+</p>
+
+<p>
+  <strong>Startdate:</strong>
+  <%= @request_all.startDate %>
+</p>
+
+<p>
+  <strong>Enddate:</strong>
+  <%= @request_all.endDate %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @request_all.status %>
+</p>
+
+<%= link_to 'Edit', edit_request_all_path(@request_all) %> |
+<%= link_to 'Back', request_alls_path %>

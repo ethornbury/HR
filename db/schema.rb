@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512162421) do
+ActiveRecord::Schema.define(version: 20150513064053) do
 
   create_table "employees", force: true do |t|
     t.string   "firstname"
@@ -23,10 +23,31 @@ ActiveRecord::Schema.define(version: 20150512162421) do
     t.datetime "updated_at"
   end
 
+  create_table "request_alls", force: true do |t|
+    t.string   "type"
+    t.datetime "startDate"
+    t.datetime "endDate"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "request_types", force: true do |t|
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "requests", force: true do |t|
+    t.string   "type"
+    t.datetime "startDate"
+    t.datetime "endDate"
+    t.string   "status"
+    t.integer  "Employee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "requests", ["Employee_id"], name: "index_requests_on_Employee_id"
 
 end

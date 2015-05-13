@@ -5,7 +5,13 @@ class EmployeesController < ApplicationController
 
   def index
     @employees = Employee.all
-    respond_with(@employees)
+    
+    respond_to do |format|
+      format.html
+      format.csv { render text: @employees.to_csv }
+    end
+    #respond_with(@employees)
+    
     #@employees = Employee.paginate(page: params[:page])
   end
 
@@ -36,7 +42,12 @@ class EmployeesController < ApplicationController
     @employee.destroy
     respond_with(@employee)
   end
-
+  
+  def import
+    Employee.import(params[:file])
+    redirect_to employees_path, notice: "Employees added successully"
+  end
+  
   private
     def set_employee
       @employee = Employee.find(params[:id])
