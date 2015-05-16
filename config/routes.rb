@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   resources :employees do
     collection {post :import}
-    resources :requests
+    resources :requests, controller: 'employees/requests' 
   end 
   
   resources :request_alls

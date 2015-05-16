@@ -1,0 +1,60 @@
+<%= form_for [@employee, @request] do |f| %>
+
+  <% if @request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+      <% @request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+      <div class="control-group">
+        <%= f.label :description, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :description %>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label :startDate, class: 'control-label' %>
+        <div class="controls">
+          <%= f.date_select :startDate %>
+        </div>
+      </div>
+      
+       <div class="control-group">
+        <%= f.label :endDate %>
+        <div class="controls">
+          <%= f.datetime_select :endDate %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :status, class: 'control-label' %>
+        <div class="controls">
+          <%= f.select(:status, options_for_select([['Pending', 'Pending'],['Approved', 'Approved'],['Denied', 'Denied']]), {include_blank: true}) %>
+        </div>
+      </div>
+      
+     
+      
+        <div class="control-group">
+         <%#= f.label :Employee, class: 'control-label' %>
+         <div class="controls">
+           <%#= collection_select(:request, :employee_id, employee.all, :id, :name, {}, { :multiple => false }) %>
+         </div>
+        </div>
+      
+         <div class="control-group">
+           <div class="controls">
+            <%= f.submit 'Submit', class: 'btn btn-default' %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

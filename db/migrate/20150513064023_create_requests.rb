@@ -5,7 +5,7 @@ class CreateRequests < ActiveRecord::Migration
       t.datetime :startDate
       t.datetime :endDate
       t.string :status
-      t.references :Employee, index: true
+      t.references :employee, index: true
 
       t.timestamps
     end

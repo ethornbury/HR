@@ -16,6 +16,10 @@ class EmployeesController < ApplicationController
   end
 
   def show
+   
+    @employee = Employee.find(params[:id])
+    @requests = @employee.requests    #call all relates requests
+    
     respond_with(@employee)
   end
 
@@ -44,8 +48,12 @@ class EmployeesController < ApplicationController
   end
   
   def import
-    Employee.import(params[:file])
-    redirect_to employees_path, notice: "Employees added successully"
+    begin 
+      Employee.import(params[:file])
+      redirect_to employees_path, notice: "Employees added successully"
+     rescue
+      redirect_to employees_path, notice: "Invalid import, check your CSV file."
+    end  
   end
   
   private

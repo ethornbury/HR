@@ -16,7 +16,6 @@
         <% @request_types.each do |request_type| %>
           <tr>
             <td><%= request_type.description %></td>
-            <td><%= link_to 'Show', request_type, :class => 'btn btn-default btn-xs' %></td>
             <td><%= link_to 'Edit', edit_request_type_path(request_type), :class => 'btn btn-success btn-xs' %></td>
             <td><%= link_to 'Destroy', request_type, :class => 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>

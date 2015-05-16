@@ -1,3 +1,3 @@
 class Request < ActiveRecord::Base
-  belongs_to :Employee
+  belongs_to :employee
 end
