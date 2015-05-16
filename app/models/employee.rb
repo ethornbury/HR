@@ -1,5 +1,5 @@
 class Employee < ActiveRecord::Base
-    
+  
     def self.import(file)
         CSV.foreach(file.path, headers: true) do |row|
             Employee.create! row.to_hash
