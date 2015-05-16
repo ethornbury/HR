@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Type</th>
+      <th>Request Type</th>
       <th>Startdate</th>
       <th>Enddate</th>
       <th>Status</th>
@@ -15,7 +15,8 @@
   <tbody>
     <% @requests.each do |request| %>
       <tr>
-        <td><%= request.description %></td>
+        <td><%= request.request_desc %></td>
+  <!--      <td><%#= request.request_type.description %></td> -->
         <td><%= request.startDate %></td>
         <td><%= request.endDate %></td>
         <td><%= request.status %></td>

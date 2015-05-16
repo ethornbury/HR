@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150516124011) do
+ActiveRecord::Schema.define(version: 20150516182844) do
 
   create_table "employees", force: true do |t|
     t.string   "firstname"
@@ -39,13 +39,14 @@ ActiveRecord::Schema.define(version: 20150516124011) do
   end
 
   create_table "requests", force: true do |t|
-    t.string   "description"
-    t.datetime "startDate"
+    t.date     "startDate"
     t.datetime "endDate"
     t.string   "status"
     t.integer  "employee_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "request_type_id"
+    t.string   "request_desc"
   end
 
   add_index "requests", ["employee_id"], name: "index_requests_on_employee_id"

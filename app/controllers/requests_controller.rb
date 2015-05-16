@@ -42,6 +42,6 @@ class RequestsController < ApplicationController
     end
 
     def request_params
-      params.require(:request).permit(:type, :startDate, :endDate, :status, :Employee_id)
+      params.require(:request).permit(:startDate, :endDate, :status, :employee_id, :request_type_id, :request_desc )
     end
 end

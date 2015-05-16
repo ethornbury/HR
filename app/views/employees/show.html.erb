@@ -45,7 +45,8 @@
         
         <% @requests.each do |request| %>
         <tr>
-          <td><%= request.description %></td>
+          <td><%= request.request_desc %></td>
+  <!--        <td><%#= request.request_type.description %></td> -->
           <td><%= request.startDate.strftime("%d-%m-%Y")  %></td>
           <td><%= request.endDate.strftime("%d-%m-%Y")  %></td>
           <td><%= request.status %></td>
