@@ -1,4 +1,8 @@
 class Employee < ActiveRecord::Base
+    
+    validates :firstname,  presence: true, length: { maximum: 80 }
+    validates :lastname,  presence: true, length: { maximum: 80 }
+    
     has_many :requests, dependent: :destroy
     def self.import(file)
         CSV.foreach(file.path, headers: true) do |row|
