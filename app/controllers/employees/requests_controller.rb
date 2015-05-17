@@ -36,8 +36,17 @@ class Employees::RequestsController < ApplicationController
   end
 
   def destroy
-    @request.destroy
-    respond_with(@request)
+    @employee = Employee.find(params[:employee_id])
+    @request = Request.find(params[:id])
+    title = @request.request_desc
+    
+    if @request.destroy
+      flash[:notice] = "#{title} has been deleted successfully."
+      respond_with(@employee)
+    else
+      flash[:error] = "There was a problem with deleting that request"
+      render :show
+    end
   end
 
   private

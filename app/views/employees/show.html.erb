@@ -39,6 +39,7 @@
           <th>Start Date</th>
           <th>End Date</th>
           <th>Status</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -46,10 +47,10 @@
         <% @requests.each do |request| %>
         <tr>
           <td><%= request.request_desc %></td>
-  <!--        <td><%#= request.request_type.description %></td> -->
           <td><%= request.startDate.strftime("%d-%m-%Y")  %></td>
           <td><%= request.endDate.strftime("%d-%m-%Y")  %></td>
           <td><%= request.status %></td>
+          <td><%= link_to "Delete", [@employee, request], method: :delete, :class => 'btn btn-default', data: { confirm: "Are you sure?" } %></td>
         </tr>
         <% end %>
         
@@ -60,4 +61,4 @@
 
 <%#= link_to 'Edit Employee', edit_employee_path(@employee), :class => 'btn btn-default'  %>
 <%= link_to 'Back', employees_path, :class => 'btn btn-default'  %>
-<%= link_to 'Add new Request', new_employee_request_path(@employee), class: 'btn btn-default' %>
+<%= link_to 'Add new Request', new_employee_request_path(@employee), class: 'btn btn-success' %>
