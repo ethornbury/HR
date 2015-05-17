@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20150516182844) do
 
   create_table "employees", force: true do |t|
-    t.string   "firstname"
-    t.string   "lastname"
+    t.string   "firstname",                      null: false
+    t.string   "lastname",                       null: false
     t.integer  "leaveAllowance"
     t.string   "jobType"
     t.boolean  "admin",          default: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20150516182844) do
   create_table "requests", force: true do |t|
     t.date     "startDate"
     t.datetime "endDate"
-    t.string   "status"
+    t.string   "status",          default: "Pending", null: false
     t.integer  "employee_id"
     t.datetime "created_at"
     t.datetime "updated_at"

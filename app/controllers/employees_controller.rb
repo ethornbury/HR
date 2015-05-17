@@ -50,9 +50,9 @@ class EmployeesController < ApplicationController
   def import
     begin 
       Employee.import(params[:file])
-      redirect_to employees_path, notice: "Employees added successully"
+      redirect_to employees_path, flash[:notice] = "Employees added successully"
      rescue
-      redirect_to employees_path, notice: "Invalid import, check your CSV file."
+      redirect_to employees_path, flash[:notice] = "Invalid import, check your CSV file."
     end  
   end
   

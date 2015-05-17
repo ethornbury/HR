@@ -25,19 +25,44 @@ class Employees::RequestsController < ApplicationController
     @employee = Employee.find(params[:employee_id])
     @request = Request.new(request_params)
     @request.employee = @employee
+    title = @request.request_desc
     
-    @request.save
-    respond_with(@employee)
+    if @request.save
+      flash[:success] = "Your request for #{title} was saved successfully."
+      respond_with(@employee)
+    else
+      flash[:error] = "There was an error creating your Request."
+      render :show
+    end
   end
 
   def update
-    @request.update(request_params)
-    respond_with(@request)
+    #@request.update(request_params)
+    #respond_with(@request)
+     
+    @request = Request.find(params[:id])
+    if @request.update_attributes(request_params)
+      flash[:success] = "Request updated"
+      respond_with(@request)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-    @request.destroy
-    respond_with(@request)
+    @employee = Employee.find(params[:employee_id])
+    @request = Request.find(params[:id])
+    
+    if @request.destroy
+      flash[:notice] = "Your request was deleted successfully."
+    
+    # @request.destroy
+      respond_with(@employee)
+    else 
+      flash[:error] = "There was an error deleting your Request."
+      render :show
+      
+    end
   end
 
   private
