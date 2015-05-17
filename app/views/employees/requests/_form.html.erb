@@ -3,7 +3,7 @@
 
   <% if @request.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
+      <p><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</p>
 
       <ul>
       <% @request.errors.full_messages.each do |message| %>
@@ -15,17 +15,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    
-  <!--  
-      <div class="control-group">
-        <%#= f.label :description, class: 'control-label' %>
-        <div class="controls">
-           <%#= collection_select(:request, :request_type_id, RequestType.all, :id, :description, {:prompt => 'Select type'}, { :multiple => false }) %>
-          <%#= f.text_field :description %>
-        </div>
-      </div>
-      -->
- 
+
        <div class="control-group">
         <%= f.label "Request Type", class: 'control-label' %><br>
           <%= f.select(:request_desc, options_for_select([['Annual Leave', 'Annual'],

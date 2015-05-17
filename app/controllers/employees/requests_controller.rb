@@ -22,12 +22,18 @@ class Employees::RequestsController < ApplicationController
   end
 
   def create
+    flash.clear
     @employee = Employee.find(params[:employee_id])
     @request = Request.new(request_params)
     @request.employee = @employee
     
-    @request.save
-    respond_with(@employee)
+    if @request.save
+      flash.now[:notice] = "Request has been updated successfully." 
+      respond_with(@employee)
+    else
+     flash.now[:error] = "There was a problem with that request"
+     render :edit
+    end
   end
 
   def update

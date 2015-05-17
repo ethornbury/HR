@@ -10,16 +10,14 @@ class EmployeesController < ApplicationController
       format.html
       format.csv { render text: @employees.to_csv }
     end
-    #respond_with(@employees)
     
+    #respond_with(@employees)
     #@employees = Employee.paginate(page: params[:page])
   end
 
   def show
-   
     @employee = Employee.find(params[:id])
     @requests = @employee.requests    #call all relates requests
-    
     respond_with(@employee)
   end
 
@@ -38,21 +36,38 @@ class EmployeesController < ApplicationController
   end
 
   def update
-    @employee.update(employee_params)
-    respond_with(@employee)
+    flash.clear
+    if @employee.update(employee_params)
+      flash[:notice] = "Profile has been updated successfully."
+      respond_with(@employee)
+    else
+      flash[:error] = "There was a problem with that request"
+      render :edit
+    end
   end
 
   def destroy
-    @employee.destroy
-    respond_with(@employee)
+    flash.clear
+   # @employee.destroy
+    #respond_with(@employee)
+    title = @employee.firstname.lastname
+    
+    if @employee.destroy
+      flash[:notice] = "#{title} has been deleted successfully."
+      respond_with(@employee)
+    else
+      flash[:error] = "There was a problem with that request"
+      render :show
+    end
   end
   
   def import
+    flash.clear
     begin 
       Employee.import(params[:file])
-      redirect_to employees_path, notice: "Employees added successully"
+      redirect_to employees_path, flash[:notice] = "Employees added successully"
      rescue
-      redirect_to employees_path, notice: "Invalid import, check your CSV file."
+      redirect_to employees_path, flash[:error] = "Invalid import, check your CSV file."
     end  
   end
   
