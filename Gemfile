@@ -54,7 +54,7 @@ gem 'bootstrap-generators', '~> 3.3.1'
 gem 'bootstrap-sass', '~> 3.3.4'
 
 gem 'devise'
-
+gem 'googlecharts'
 #to minise the ouput to scroll through from the server in development
 gem 'quiet_assets', group: :development
 

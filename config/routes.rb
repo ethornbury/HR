@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end 
     resources :request_types
   
-  get 'about'    => 'static_pages#about'
-  get 'contact' => 'static_pages#contact'
-
+  get 'about'   =>  'static_pages#about'
+  get 'contact' =>  'static_pages#contact'
+  get 'reports' =>  'static_pages#report'
 end

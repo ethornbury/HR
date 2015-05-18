@@ -11,7 +11,7 @@ class EmployeesController < ApplicationController
     end
 
     #@employees = Employee.all
-    
+    @@dataX = Employee.all
     respond_to do |format|
       format.html
       format.csv { render text: @employees.to_csv }

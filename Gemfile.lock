@@ -58,6 +58,7 @@ GEM
     execjs (2.5.2)
     faker (1.4.2)
       i18n (~> 0.5)
+    googlecharts (1.6.10)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.16)
@@ -150,6 +151,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   faker (= 1.4.2)
+  googlecharts
   jbuilder (~> 2.0)
   jquery-rails
   pg (= 0.17.1)

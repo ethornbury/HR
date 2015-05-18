@@ -1,0 +1,100 @@
+<% provide(:title, "Reports") %>
+
+<h1>Reports and Charts</h1>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+ <h3>Report 1</h3>       
+        <img src="
+  <%= require 'gchart'
+  Gchart.line(:size => '500x300',
+      :title => "Annual Leave",
+      :bg => 'f1ecec',
+      :graph_bg => 'ffffff',
+      :axis_with_labels => ['y'],
+      :legend => ['first data set label', 'second data set label'],
+              :data => [10, 30, 120, 45, 72])
+  %>
+" />
+<br>
+<h3>Report 2</h3>
+    <img src="
+  <%= require 'gchart'
+  Gchart.line(:size => '500x300',
+      :title => "Annual Leave",
+      :bg => 'FFE6C1',
+      :graph_bg => 'ffffff',
+      :axis_with_labels => ['x,y,r,t'],
+      :axis_labels => ['Jan|July|Jan|July|Jan', '0|50|100', 'A|B|C', '2005|2006|2007'],
+      :legend => ['first data set label', 'second data set label'],
+              :data => [@@dataX])
+  %>
+" />
+ 
+ <img src="
+  <%#= require 'gchart'
+  Gchart.bar(:size => '400x500',
+      :title => "Even numbers",
+      :bg => 'D0C0C0',
+      :axis_with_labels => ['y'],
+      :legend => ['even numbers'],
+      :data => @request)
+  %>
+" />
+
+<img src="
+  <%#= require 'gchart'
+  Gchart.bar(:size => '400x500',
+      :title => "Even numbers",
+      :bg => 'D0C0C0',
+      :axis_with_labels => ['y'],
+      :legend => ['even numbers'],
+      :data => @evenData,
+      :orientation => 'horizontal',
+      :bar_colors => '00FF00')
+  %>
+" />
+
+<img src="
+  <%#= require 'gchart'
+  Gchart.pie(:size => '600x500',
+      :title => "Even numbers",
+      :bg => 'D0C0C0',
+      :axis_with_labels => ['y'],
+      :legend => ['even numbers'],
+      :data => @evenData,
+      :labels => @evenData)
+  %>
+" />
+
+<br>
+
+
+<img src="
+  <%#= require 'gchart'
+    Gchart.line(:size => '400x500',
+        :title => "Even numbers",
+        :bg => 'D0C0C0',
+        :axis_with_labels => ['y'],
+        :legend => ['even numbers', 'odd numbers'],
+        :line_colors => "FF0000,0197c3",
+        :data =>  [@evenData, @oddData])
+  %>" 
+/>
+
+<img src="
+  <%#= require 'gchart'
+    Gchart.bar(:size => '400x500',
+        :title => "Even numbers",
+        :bg => 'D0C0C0',
+        :axis_with_labels => ['y'],
+        :legend => ['even numbers', 'odd numbers'],
+        :line_colors => "FF0000,0197c3",
+        :data =>  [@evenData, @oddData])
+        
+  %>" 
+/>
+                   
+
+    </div>
+</div>
