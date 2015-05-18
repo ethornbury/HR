@@ -6,9 +6,7 @@ Rails.application.routes.draw do
     collection {post :import}
     resources :requests, controller: 'employees/requests' 
   end 
-  
-  resources :request_alls
-  resources :request_types
+    resources :request_types
   
   get 'about'    => 'static_pages#about'
   get 'contact' => 'static_pages#contact'

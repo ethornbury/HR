@@ -4,7 +4,13 @@ class EmployeesController < ApplicationController
   respond_to :html
 
   def index
-    @employees = Employee.all
+    if params[:search]
+      @employees = Employee.search(params[:search]).order("lastname ASC")
+    else
+      @employees = Employee.all.order("lastname ASC")
+    end
+
+    #@employees = Employee.all
     
     respond_to do |format|
       format.html

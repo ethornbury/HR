@@ -17,5 +17,10 @@ class Employee < ActiveRecord::Base
                 csv << employee.attributes.values_at(*column_names)
             end
         end
-    end       
+    end 
+    
+    def self.search(query)
+    # where(:title, query) -> This would return an exact match of the query
+        where("lastname like ?", "%#{query}%") 
+    end
 end
