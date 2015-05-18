@@ -49,8 +49,10 @@ gem 'bootstrap-will_paginate', '0.0.10'
 #for creating fake data quickly
 gem 'faker', '1.4.2'
 
-gem 'bootstrap-sass', '~> 2.3.1.0'
+#gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'bootstrap-generators', '~> 3.3.1'
+gem 'bootstrap-sass', '~> 3.3.4'
+
 gem 'devise'
 
 #to minise the ouput to scroll through from the server in development
