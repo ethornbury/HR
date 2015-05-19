@@ -4,117 +4,80 @@
 
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-       <h3>Report 1</h3>
+      <!-- view the sample.pdf in the html page -->
+      <object data="sample.pdf" type="application/pdf" title="Embeded Sample pdf" class="obj" >
+      </object>
+      <br><br>
+      <%= link_to 'Download Sample PDF', download_pdf_path, :class => 'btn btn-default' %> 
+      <%= link_to "View Document in new tab", show_pdf_path, :target => "_blank", :class =>"btn btn-default" %>
+      
+      <h3>Report 1</h3>
  
-<img src="
-  <%= require 'gchart'
-  Gchart.line(:size => '500x300',
-      :title => "Employee Annual Leave Allowances",
-      :bg => 'ADC5E0',
-      :graph_bg => 'DCE8F5',
-      :line_colors => '365E8B',
-      :axis_with_labels => ['x,y'],
-      :axis_labels => [' ','0|10|20|50'],
-      :legend => ['Leave Allowance'],
-      :data => Employee.pluck(:leaveAllowance),
-      :alt => "Leave Allowance Chart"
-      )
-  %>
-" />
+      <img src="
+        <%= require 'gchart'
+        Gchart.line(:size => '500x300',
+            :title => "Employee Annual Leave Allowances",
+            :bg => 'ADC5E0',
+            :graph_bg => 'DCE8F5',
+            :line_colors => '365E8B',
+            :axis_with_labels => ['x,y'],
+            :axis_labels => [' ','0|10|20|50'],
+            :legend => ['Leave Allowance'],
+            :data => Employee.pluck(:leaveAllowance),
+            :alt => "Leave Allowance Chart"
+            )
+        %>
+      " />
+      
+      <br>
+      <h3>Report 2</h3>
+      <img src="
+        <%= require 'gchart'
+          Gchart.bar(:size => '500x300',
+            :title => "Leave Status Report",
+            :bg => 'D4ABE1',
+            :graph_bg => 'EFDBF5',
+            :line_colors => '77338D',
+            :axis_with_labels => ['y,r'],
+            :axis_labels => ['0|1|2|3', '0|Pending|Approved|Denied'],
+            :legend => ['Status'],
+            :data => Request.pluck(:status) )
+        %>
+      " />
+      <br>
+      <h3>Report 3</h3>
+       <img src="
+        <%= require 'gchart'
+        Gchart.bar(:size => '500x300',
+            :title => "Employee Leave Allowance",
+            :bg => 'b8e76c',
+            :graph_bg => 'e1f8ba',
+            :line_colors => '93C442',
+            :axis_with_labels => ['x'],
+            :orientation => 'horizontal',
+            :bar_width_and_spacing => ['15,6'],
+            :axis_labels => ['0|10|20|50'],
+            :legend => ['Annual Days off'],
+            :orientation => 'horizontal',
+            :data => Employee.pluck(:leaveAllowance))
+        %>
+      " />
 
-<br>
-<h3>Report 2</h3>
-  <img src="
-    <%= require 'gchart'
-      Gchart.line(:size => '500x300',
-        :title => "Leave Status Report",
-        :bg => 'D4ABE1',
-        :graph_bg => 'EFDBF5',
-        :line_colors => '77338D',
-        :axis_with_labels => ['y,r'],
-        :axis_labels => ['0|1|2|3', '0|Pending|Approved|Denied'],
-        :legend => ['Status'],
-        :data => Request.pluck(:status) )
-    %>
-  " />
-  
-<br>
-<h3>Report 2</h3>
- <img src="
-  <%= require 'gchart'
-  Gchart.bar(:size => '500x300',
-      :title => "Employee Leave Allowance",
-      :bg => 'b8e76c',
-      :graph_bg => 'e1f8ba',
-      :line_colors => '93C442',
-      :axis_with_labels => ['x'],
-      :bar_width_and_spacing => ['15,6'],
-      :axis_labels => ['0|10|20|50'],
-      :legend => ['Annual Days off'],
-      :orientation => 'horizontal',
-      :data => Employee.pluck(:leaveAllowance))
-  %>
-" />
-
-<br>
-<h3>Report 2</h3>
-<img src="
-  <%= require 'gchart'
-  Gchart.bar(:size => '500x300',
-      :title => "Even numbers",
-      :bg => 'b8e76c',
-      :graph_bg => 'e1f8ba',
-      :line_colors => '93C442',
-      :bar_width_and_spacing => ['15,6'],
-      :axis_with_labels => ['y'],
-      :bar_width_and_spacing => ['15,6'],
-      :axis_labels => ['0|10|20|50'],
-      :legend => ['Annual Days off'],
-      :orientation => 'horizontal',
-      :data => Employee.pluck(:leaveAllowance))
-  %>
-" />
-
-<img src="
-  <%#= require 'gchart'
-  Gchart.pie(:size => '600x500',
-      :title => "Even numbers",
-      :bg => 'D0C0C0',
-      :axis_with_labels => ['y'],
-      :legend => ['even numbers'],
-      :data => @evenData,
-      :labels => @evenData)
-  %>
-" />
-
-<br>
-
-
-<img src="
-  <%#= require 'gchart'
-    Gchart.line(:size => '400x500',
-        :title => "Even numbers",
-        :bg => 'D0C0C0',
-        :axis_with_labels => ['y'],
-        :legend => ['even numbers', 'odd numbers'],
-        :line_colors => "FF0000,0197c3",
-        :data =>  [@evenData, @oddData])
-  %>" 
-/>
-
-<img src="
-  <%#= require 'gchart'
-    Gchart.bar(:size => '400x500',
-        :title => "Even numbers",
-        :bg => 'D0C0C0',
-        :axis_with_labels => ['y'],
-        :legend => ['even numbers', 'odd numbers'],
-        :line_colors => "FF0000,0197c3",
-        :data =>  [@evenData, @oddData])
-        
-  %>" 
-/>
-                   
+      <br>
+      <h3>Report 4</h3>
+      <img src="
+        <%= require 'gchart'
+        Gchart.pie(:size => '500x400',
+            :title => "Something",
+            :bg => 'fff1e3',
+            :labels => ['pending','approved','denied'],
+            :legend => ['Something'],
+            :data => Employee.pluck(:leaveAllowance))
+            
+        %>
+      " />
+      
+      <br>
 
     </div>
 </div>
