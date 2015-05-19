@@ -15,52 +15,48 @@
  
       <img src="
         <%= require 'gchart'
-        Gchart.line(:size => '500x300',
-            :title => "Employee Annual Leave Allowances",
-            :bg => 'ADC5E0',
-            :graph_bg => 'DCE8F5',
-            :line_colors => '365E8B',
-            :axis_with_labels => ['x,y'],
-            :axis_labels => [' ','0|10|20|50'],
-            :legend => ['Leave Allowance'],
-            :data => Employee.pluck(:leaveAllowance),
-            :alt => "Leave Allowance Chart"
-            )
-        %>
+        Gchart.line(:size  => '500x300',
+              :title       => "Employee Annual Leave Allowances",
+              :bg          => 'ADC5E0',
+              :graph_bg    => 'DCE8F5',
+              :line_colors => '365E8B',
+              :axis_with_labels => ['x,y'],
+              :axis_labels => [' ','0|10|20|50'],
+              :legend      => ['Leave Allowance'],
+              :data        => Employee.pluck(:leaveAllowance),
+              :alt         => "Leave Allowance Chart") %>
       " />
       
       <br>
       <h3>Report 2</h3>
       <img src="
         <%= require 'gchart'
-          Gchart.bar(:size => '500x300',
-            :title => "Leave Status Report",
-            :bg => 'D4ABE1',
-            :graph_bg => 'EFDBF5',
-            :line_colors => '77338D',
+          Gchart.bar(:size    => '500x300',
+            :title            => "Leave Status Report",
+            :bg               => 'D4ABE1',
+            :graph_bg         => 'EFDBF5',
+            :line_colors      => '77338D',
             :axis_with_labels => ['y,r'],
-            :axis_labels => ['0|1|2|3', '0|Pending|Approved|Denied'],
-            :legend => ['Status'],
-            :data => Request.pluck(:status) )
-        %>
+            :axis_labels      => ['0|1|2|3', '0|Pending|Approved|Denied'],
+            :legend           => ['Status'],
+            :data             => Request.pluck(:status) ) %>
       " />
       <br>
       <h3>Report 3</h3>
        <img src="
         <%= require 'gchart'
-        Gchart.bar(:size => '500x300',
-            :title => "Employee Leave Allowance",
-            :bg => 'b8e76c',
-            :graph_bg => 'e1f8ba',
-            :line_colors => '93C442',
-            :axis_with_labels => ['x'],
-            :orientation => 'horizontal',
-            :bar_width_and_spacing => ['15,6'],
-            :axis_labels => ['0|10|20|50'],
-            :legend => ['Annual Days off'],
-            :orientation => 'horizontal',
-            :data => Employee.pluck(:leaveAllowance))
-        %>
+        Gchart.bar(:size      => '500x300',
+              :title          => "Employee Leave Allowance",
+              :bg             => 'b8e76c',
+              :graph_bg       => 'e1f8ba',
+              :line_colors    => '93C442',
+              :axis_with_labels => ['x'],
+              :orientation    => 'horizontal',
+              :bar_width_and_spacing => ['15,6'],
+              :axis_labels    => ['0|10|20|50'],
+              :legend         => ['Annual Days off'],
+              :orientation    => 'horizontal',
+              :data           => Employee.pluck(:leaveAllowance)) %>
       " />
 
       <br>
@@ -68,13 +64,11 @@
       <img src="
         <%= require 'gchart'
         Gchart.pie(:size => '500x400',
-            :title => "Something",
-            :bg => 'fff1e3',
-            :labels => ['pending','approved','denied'],
-            :legend => ['Something'],
-            :data => Employee.pluck(:leaveAllowance))
-            
-        %>
+                :title   => "Status of Leave Requests",
+                :bg      => 'fff1e3',
+                :labels  => ['pending','approved','denied'],
+                :legend  => ['Status'],
+                :data    => Request.pluck(:status)) %>
       " />
       
       <br>
