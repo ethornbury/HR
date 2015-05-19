@@ -9,10 +9,5 @@ class StaticPagesController < ApplicationController
   end
   
   def report
-    
-    @@dataX = []   #bottom data
-    @@dataY = []   #left side data
-    
-      
   end
 end

@@ -47,9 +47,9 @@
       
       <div class="control-group">
         <%= f.label :status, class: 'control-label' %><br>
-        <%= f.select(:status, options_for_select([['Pending', 'Pending'],
-                                ['Approved', 'Approved'],
-                                ['Denied', 'Denied']]), 
+        <%= f.select(:status, options_for_select([['Pending', '1'],
+                                ['Approved', '2'],
+                                ['Denied', '3']]), 
                                 {:name => "Pending"},
                                 {:class => "form-control"}) %>
       </div>

@@ -23,15 +23,6 @@ ActiveRecord::Schema.define(version: 20150516182844) do
     t.datetime "updated_at"
   end
 
-  create_table "request_alls", force: true do |t|
-    t.string   "type"
-    t.datetime "startDate"
-    t.datetime "endDate"
-    t.string   "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "request_types", force: true do |t|
     t.string   "description"
     t.datetime "created_at"
@@ -41,7 +32,7 @@ ActiveRecord::Schema.define(version: 20150516182844) do
   create_table "requests", force: true do |t|
     t.date     "startDate"
     t.date     "endDate"
-    t.string   "status",          default: "Pending", null: false
+    t.integer  "status",          default: 1, null: false
     t.integer  "employee_id"
     t.datetime "created_at"
     t.datetime "updated_at"

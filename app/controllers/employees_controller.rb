@@ -11,7 +11,6 @@ class EmployeesController < ApplicationController
     end
 
     #@employees = Employee.all
-    @@dataX = Employee.all
     respond_to do |format|
       format.html
       format.csv { render text: @employees.to_csv }
@@ -56,7 +55,7 @@ class EmployeesController < ApplicationController
     flash.clear
    # @employee.destroy
     #respond_with(@employee)
-    title = @employee.firstname.lastname
+    title = @employee.lastname
     
     if @employee.destroy
       flash[:notice] = "#{title} has been deleted successfully."
@@ -72,8 +71,8 @@ class EmployeesController < ApplicationController
     begin 
       Employee.import(params[:file])
       redirect_to employees_path, flash[:notice] = "Employees added successully"
-     rescue
-      redirect_to employees_path, flash[:error] = "Invalid import, check your CSV file."
+    rescue
+      redirect_to employees_path, flash[:danger] = "Invalid import, check your CSV file."
     end  
   end
   

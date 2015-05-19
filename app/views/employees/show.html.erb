@@ -49,7 +49,16 @@
           <td><%= request.request_desc %></td>
           <td><%= request.startDate.strftime("%d-%m-%Y")  %></td>
           <td><%= request.endDate.strftime("%d-%m-%Y")  %></td>
-          <td><%= request.status %></td>
+          <td>
+            <%= request.status %>
+            <% if request.status == 1 %>
+              <%= ' = Pending' %>
+            <% elsif request.status == 2 %>
+              <%= ' = Approved' %>
+            <% elsif request.status == 3 %>
+              <%= ' = Denied' %>
+            <% end %>
+          </td>
           <td><%= link_to "Delete", [@employee, request], method: :delete, :class => 'btn btn-default', data: { confirm: "Are you sure?" } %></td>
         </tr>
         <% end %>

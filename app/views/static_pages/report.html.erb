@@ -4,40 +4,48 @@
 
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
- <h3>Report 1</h3>       
-        <img src="
+       <h3>Report 1</h3>
+ 
+<img src="
   <%= require 'gchart'
   Gchart.line(:size => '500x300',
-      :title => "Annual Leave",
-      :bg => 'f1ecec',
-      :graph_bg => 'ffffff',
-      :axis_with_labels => ['y'],
-      :legend => ['first data set label', 'second data set label'],
-              :data => [10, 30, 120, 45, 72])
+      :title => "Employee Annual Leave Allowances",
+      :bg => 'ADC5E0',
+      :graph_bg => 'DCE8F5',
+      :line_colors => '365E8B',
+      :axis_with_labels => ['x,y'],
+      :axis_labels => [' ','0|10|20|50'],
+      :legend => ['Leave Allowance'],
+      :data => Employee.pluck(:leaveAllowance),
+      :alt => "Leave Allowance Chart"
+      )
   %>
 " />
+
 <br>
 <h3>Report 2</h3>
-    <img src="
-  <%= require 'gchart'
-  Gchart.line(:size => '500x300',
-      :title => "Annual Leave",
-      :bg => 'FFE6C1',
-      :graph_bg => 'ffffff',
-      :axis_with_labels => ['x,y,r,t'],
-      :axis_labels => ['Jan|July|Jan|July|Jan', '0|50|100', 'A|B|C', '2005|2006|2007'],
-      :legend => ['first data set label', 'second data set label'],
-              :data => [@@dataX])
-  %>
-" />
- 
+  <img src="
+    <%= require 'gchart'
+      Gchart.line(:size => '500x300',
+        :title => "Leave Status Report",
+        :bg => 'D4ABE1',
+        :graph_bg => 'EFDBF5',
+        :line_colors => '77338D',
+        :axis_with_labels => ['y,r'],
+        :axis_labels => ['0|1|2|3', '0|Pending|Approved|Denied'],
+        :legend => ['Status'],
+        :data => Request.pluck(:status) )
+    %>
+  " />
+
  <img src="
   <%#= require 'gchart'
   Gchart.bar(:size => '400x500',
       :title => "Even numbers",
       :bg => 'D0C0C0',
       :axis_with_labels => ['y'],
-      :legend => ['even numbers'],
+      :axis_labels => ['Jan|July|Jan|July|Jan', '0|50|100', 'A|B|C', '2005|2006|2007'],
+      :legend => ['first data set label', 'second data set label'],
       :data => @request)
   %>
 " />
