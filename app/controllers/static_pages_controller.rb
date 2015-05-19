@@ -8,13 +8,10 @@ class StaticPagesController < ApplicationController
   def about
   end
   
-  IMAGES_PATH = File.join(Rails.root, "public", "images")
-  
   def report
   end
   def show_pdf
-      #pdf_filename = File.join(Rails.root, "public/sample.pdf")
-      #@model = pdf_filename
+      #pdf_filename = File.join(Rails.root, "public/sample.pdf") #this option didn't work
       send_file("#{Rails.root}/public/sample.pdf",        #pdf_filename, 
         :filename => "sample.pdf", 
         :disposition => 'inline', 

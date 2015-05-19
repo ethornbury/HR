@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root 'static_pages#home'
   
   resources :employees do
@@ -13,4 +14,6 @@ Rails.application.routes.draw do
   get 'reports'       =>  'static_pages#report'
   get 'show_pdf'      =>  'static_pages#show_pdf'
   get 'download_pdf'  =>  'static_pages#download_pdf'
+  get 'sign_in'       =>  'devise/sessions#create'
+  get 'sign_up'       =>  'devise/sessions#new'
 end
