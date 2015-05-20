@@ -25,6 +25,10 @@
     <%= f.text_field :lastname, class: 'form-control' %>
   </div>
   <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= f.label :leaveAllowance %><br>
     <%= f.number_field :leaveAllowance, class: 'form-control' %>
   </div>
@@ -33,10 +37,12 @@
     <%= f.text_field :jobType, class: 'form-control' %>
   </div>
   
-  <div class="field">
-    <%#= f.label :admin %><br>
-    <%#= f.check_box :admin %>
-  </div>
+  <% if @employee.admin && current_user %>
+      <div class="field">
+        <%= f.label :admin %><br>
+        <%= f.check_box :admin %>
+      </div>
+  <% end %>
   
   <div class="actions">
     <%= f.submit :class => 'btn btn-custom' %>

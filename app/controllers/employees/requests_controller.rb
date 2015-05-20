@@ -19,6 +19,11 @@ class Employees::RequestsController < ApplicationController
   end
 
   def edit
+  #  @child = Child.find(params[:id])
+  #  @child = @parent.children.find(params[:id])
+    @request = Request.find(params[:id])
+    @request = @employee.request.find(params[:id])
+  
   end
 
   def create
@@ -37,6 +42,13 @@ class Employees::RequestsController < ApplicationController
   end
 
   def update
+    # @child = Child.find(params[:id])
+    # @child = @parent.children.find(params[:id])
+    # @child.update_attributes(params[:child])
+     
+    #@request = Request.find(params[:id])
+    #@request = @employee.request.find(params[:id])
+    #@request.update_attributes(params[:request])
     @request.update(request_params)
     respond_with(@request)
   end

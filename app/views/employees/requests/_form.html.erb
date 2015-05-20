@@ -44,16 +44,18 @@
           <%= f.date_select :endDate, class: 'form-control' %>
       </div>
   
+      <% if @employee.admin && current_user %>    
+        <div class="control-group">
+          <%= f.label :status, class: 'control-label' %><br>
+          <%= f.select(:status, options_for_select([['Pending', '1'],
+                                  ['Approved', '2'],
+                                  ['Denied', '3']]), 
+                                  {:name => "Pending"},
+                                  {:class => "form-control"}) %>
+        </div>
+        <br>
       
-      <div class="control-group">
-        <%= f.label :status, class: 'control-label' %><br>
-        <%= f.select(:status, options_for_select([['Pending', '1'],
-                                ['Approved', '2'],
-                                ['Denied', '3']]), 
-                                {:name => "Pending"},
-                                {:class => "form-control"}) %>
-      </div>
-      <br>
+      <% end %>
      
          <div class="control-group">
            <div class="controls">

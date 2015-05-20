@@ -22,7 +22,7 @@ class EmployeesController < ApplicationController
 
   def show
     @employee = Employee.find(params[:id])
-    @requests = @employee.requests    #call all relates requests
+    @requests = @employee.requests    #call all related requests
     respond_with(@employee)
   end
 
@@ -82,6 +82,6 @@ class EmployeesController < ApplicationController
     end
 
     def employee_params
-      params.require(:employee).permit(:firstname, :lastname, :leaveAllowance, :jobType, :admin)
+      params.require(:employee).permit(:firstname, :lastname, :leaveAllowance, :jobType, :admin, :email)
     end
 end

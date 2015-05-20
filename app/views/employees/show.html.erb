@@ -9,14 +9,13 @@
      
     <p>
       <strong>Name:&emsp;&emsp;&ensp;</strong>
-      <%= @employee.firstname %>
+      <%= @employee.firstname %> <%= @employee.lastname %>
     </p>
-    
+
     <p>
-      <strong>Surname:&emsp;</strong>
-      <%= @employee.lastname %>
+      <strong>Email:&emsp;&emsp;&ensp;</strong>
+      <%= @employee.email %>
     </p>
-    
     <p>
       <strong>Leave:&emsp;&emsp;&ensp;</strong>
       <%= @employee.leaveAllowance %>
@@ -39,7 +38,8 @@
           <th>Start Date</th>
           <th>End Date</th>
           <th>Status</th>
-          <th>Delete</th>
+          <th>request_id</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -59,7 +59,12 @@
               <%= ' = Denied' %>
             <% end %>
           </td>
-          <td><%= link_to "Delete", [@employee, request], method: :delete, :class => 'btn btn-default', data: { confirm: "Are you sure?" } %></td>
+          <td><%= request.id %></td>
+          <td><%#= link_to 'Edit' edit_polymorphic_path([@employee, @request]) %></td>
+          <td><%#= link_to 'edit', request_path(@request) %></td>
+          <td><%#= link_to 'edit', edit_employee_request_path(employee.request, request) %></td>
+          <td><%#= link_to 'Edit', [:edit, @employee, @request.id] %></td>
+          <td><%= link_to 'Delete', [@employee, request], method: :delete, :class => 'btn btn-default', data: { confirm: "Are you sure?" } %></td>
         </tr>
         <% end %>
         
