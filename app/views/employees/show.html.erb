@@ -1,7 +1,5 @@
 <% provide(:title, 'Show Employee') %>
 
-
-
 <h1>Employee Profile</h1>
 <br>
 <div class="row">
@@ -39,7 +37,6 @@
           <th>End Date</th>
           <th>Status</th>
           <th>request_id</th>
-          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -50,20 +47,19 @@
           <td><%= request.startDate.strftime("%d-%m-%Y")  %></td>
           <td><%= request.endDate.strftime("%d-%m-%Y")  %></td>
           <td>
-            <%= request.status %>
+            <%#= request.status %>
             <% if request.status == 1 %>
-              <%= ' = Pending' %>
+              <%= 'Pending' %>
             <% elsif request.status == 2 %>
-              <%= ' = Approved' %>
+              <%= 'Approved' %>
             <% elsif request.status == 3 %>
-              <%= ' = Denied' %>
+              <%= 'Denied' %>
             <% end %>
           </td>
           <td><%= request.id %></td>
-          <td><%#= link_to 'Edit' edit_polymorphic_path([@employee, @request]) %></td>
           <td><%#= link_to 'edit', request_path(@request) %></td>
-          <td><%#= link_to 'edit', edit_employee_request_path(employee.request, request) %></td>
-          <td><%#= link_to 'Edit', [:edit, @employee, @request.id] %></td>
+          <td><%#= link_to 'edit', edit_employee_request_path(@employee, @request) %></td>
+          <td><%= link_to 'Edit- broken', [:edit, @employee, request], :class => 'btn btn-default' %></td>
           <td><%= link_to 'Delete', [@employee, request], method: :delete, :class => 'btn btn-default', data: { confirm: "Are you sure?" } %></td>
         </tr>
         <% end %>
@@ -73,6 +69,5 @@
   </div>
 </div>
 
-<%#= link_to 'Edit Employee', edit_employee_path(@employee), :class => 'btn btn-default'  %>
 <%= link_to 'Back', employees_path, :class => 'btn btn-default'  %>
 <%= link_to 'Add new Request', new_employee_request_path(@employee), class: 'btn btn-success' %>

@@ -8,8 +8,15 @@ class Employees::RequestsController < ApplicationController
     respond_with(@requests)
   end
 
-  def show
+  def show_all
+    @requests = Request.all
+    #@requests = Request.find(params[:id])
+    #@employee = Employee.find(params[:employee_id])
     respond_with(@request)
+  end
+  
+  def show
+    respond_with(@request, @employee)
   end
 
   def new
@@ -19,13 +26,11 @@ class Employees::RequestsController < ApplicationController
   end
 
   def edit
-  #  @child = Child.find(params[:id])
-  #  @child = @parent.children.find(params[:id])
     @request = Request.find(params[:id])
+    @employee = Employee.find(params[:employee_id])
     @request = @employee.request.find(params[:id])
-  
   end
-
+  
   def create
     flash.clear
     @employee = Employee.find(params[:employee_id])
@@ -42,17 +47,13 @@ class Employees::RequestsController < ApplicationController
   end
 
   def update
-    # @child = Child.find(params[:id])
-    # @child = @parent.children.find(params[:id])
-    # @child.update_attributes(params[:child])
-     
-    #@request = Request.find(params[:id])
-    #@request = @employee.request.find(params[:id])
-    #@request.update_attributes(params[:request])
-    @request.update(request_params)
-    respond_with(@request)
-  end
+    @request = Request.find(params[:id])
+    @request = @employee.request.find(params[:id])
 
+    @request.update(request_params)
+    respond_with(@request, @employee)
+  end
+  
   def destroy
     @employee = Employee.find(params[:employee_id])
     @request = Request.find(params[:id])

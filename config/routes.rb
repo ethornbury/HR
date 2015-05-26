@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   
   resources :employees do
     collection {post :import}
-    resources :requests, controller: 'employees/requests', :except => [:update, :edit]
+    resources :requests, controller: 'employees/requests'#, :except => [:update, :edit]
   end 
-  resources :requests, :only => [:update, :edit]
+  resources :requests#, :only => [:update, :edit]
   resources :request_types
   
   get 'about'         =>  'static_pages#about'
@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   get 'download_pdf'  =>  'static_pages#download_pdf'
   get 'sign_in'       =>  'devise/sessions#create'
   get 'sign_up'       =>  'devise/sessions#new'
-
+  get 'show_all'      =>  'employees/requests#show_all'
 end

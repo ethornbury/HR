@@ -1,0 +1,49 @@
+<% provide(:title, 'Request Listing') %>
+
+<h1>List of Requests</h1>
+<br>
+
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover table-responsive">
+      <thead>
+        <tr>
+          <th>Employee Id</th>
+          <th>Request for</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+          <th>Request Id</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @requests.each do |request| %>
+        <tr>
+          <td><%= request.employee_id %></td>
+          <td><%= request.request_desc %></td>
+          <td><%= request.startDate.strftime("%d-%m-%Y")  %></td>
+          <td><%= request.endDate.strftime("%d-%m-%Y")  %></td>
+          <td>
+            <%#= request.status %>
+            <% if request.status == 1 %>
+              <%= 'Pending' %>
+            <% elsif request.status == 2 %>
+              <%= 'Approved' %>
+            <% elsif request.status == 3 %>
+              <%= 'Denied' %>
+            <% end %>
+          </td>
+          <td><%= request.id %></td>
+          
+          <td><%#= link_to 'edit1', request_path(@request) %></td>
+          <td><%#= button_to 'Approve',  { action: "approve" } %> </td>
+          <td><%= link_to 'edit2', edit_request_path(request) %></td>
+          <td><%#= check_box_tag 'activated[]', request.id %></td>
+          <td><%= link_to 'Delete', [@employee, request], method: :delete, :class => 'btn btn-default', data: { confirm: "Are you sure?" } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>  
+</div>

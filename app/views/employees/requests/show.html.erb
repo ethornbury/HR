@@ -1,29 +1,34 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Show Request') %>
+ <p id="notice"><%= notice %></p>
+<h1>Request</h1>
 
-<p>
-  <strong>Request Type:</strong>
-  <%= @request.request_desc %>
-</p>
-
-<p>
-  <strong>Start Date:</strong>
-  <%= @request.startDate %>
-</p>
-
-<p>
-  <strong>End Date:</strong>
-  <%= @request.endDate %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @request.status %>
-</p>
-
-<p>
-  <strong>Employee:</strong>
-  <%= @request.Employee %>
-</p>
-
-<%#= link_to 'Edit', edit_request_path(@request) %> |
-<%#= link_to 'Back', requests_path %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+    <p>
+      <strong>Request Type:</strong>
+      <%= @request.request_desc %>
+    </p>
+    
+    <p>
+      <strong>Start Date:</strong>
+      <%= @request.startDate %>
+    </p>
+    
+    <p>
+      <strong>End Date:</strong>
+      <%= @request.endDate %>
+    </p>
+    
+    <p>
+      <strong>Status:</strong>
+      <%= @request.status %>
+    </p>
+    
+    <p>
+      <strong>Employee:</strong>
+      <%= @request.Employee %>
+    </p>
+  </div>
+</div>
+    <%#= link_to 'Edit', edit_request_path(@request) %> |
+    <%#= link_to 'Back', requests_path %>
