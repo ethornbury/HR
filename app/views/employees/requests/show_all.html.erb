@@ -47,12 +47,13 @@
             <% end %>
           </td>
           <td><%= request.id %></td>
-          
-          <td><%#= link_to 'edit1', request_path(@request) %></td>
-          <td><%#= button_to 'Approve',  { action: "approve" } %> </td>
-          <td><%= link_to 'edit2', edit_request_path(request) %></td>
-          <td><%#= check_box_tag 'activated[]', request.id %></td>
-          <td><%= link_to 'Delete', [@employee, request], method: :delete, :class => 'btn btn-default', data: { confirm: "Are you sure?" } %></td>
+          <td>
+        
+          <%= select_tag(:status, options_for_select([['Pending', '1'],
+                                  ['Approved', '2'],
+                                  ['Denied', '3']]),
+                                  :class => 'btn btn-default') %>
+          </td>
         </tr>
         <% end %>
       </tbody>

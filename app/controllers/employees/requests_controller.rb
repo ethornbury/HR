@@ -30,7 +30,7 @@ class Employees::RequestsController < ApplicationController
   def edit
     @request = Request.find(params[:id])
     @employee = Employee.find(params[:employee_id])
-    @request = @employee.request.find(params[:id])
+    #@request = @employee.request.find(params[:id])
   end
   
   def create
@@ -55,7 +55,7 @@ class Employees::RequestsController < ApplicationController
     @request.update(request_params)
     respond_with(@request, @employee)
   end
-  
+ 
   def destroy
     @employee = Employee.find(params[:employee_id])
     @request = Request.find(params[:id])

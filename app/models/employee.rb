@@ -29,21 +29,8 @@ class Employee < ActiveRecord::Base
         end
     end 
     
-#   def self.search(query)
-#   # where(:title, query) -> This would return an exact match of the query
-#       where("lastname like ?", "%#{query}%") 
-#   end
- 
-    def self.search(search)
-      if search
-        find(:all, :conditions => ['lastname LIKE ?', "%#{search}%"].order("lastname ASC"))
-      else
-        find(:all.order("lastname ASC"))
-      end
+    def self.search(query)
+    # where(:title, query) -> This would return an exact match of the query
+       where("lastname like ?", "%#{query}%") 
     end
-     #if params[:search]
-    #  @employees = Employee.search(params[:search]).order("lastname ASC")
-    #else
-    #  @employees = Employee.all.order("lastname ASC")
-    #end
 end

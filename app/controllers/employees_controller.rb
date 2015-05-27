@@ -9,8 +9,7 @@ class EmployeesController < ApplicationController
     else
       @employees = Employee.all.order("lastname ASC")
     end
-
-    #@employees = Employee.all
+    
     respond_to do |format|
       format.html
       format.csv { render text: @employees.to_csv }
@@ -53,8 +52,6 @@ class EmployeesController < ApplicationController
 
   def destroy
     flash.clear
-   # @employee.destroy
-    #respond_with(@employee)
     title = @employee.lastname
     
     if @employee.destroy
