@@ -1,5 +1,17 @@
 <% provide(:title, 'Request Listing') %>
 
+<div class="col-md-6 pull-right">
+    <%= form_tag(show_all_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+        <div class="input-group col-md-7">
+           <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "1=pending, 2=approved, 3=denied" %>
+              <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
+              </div>
+          </div>
+    <% end %>
+  </div>
 <h1>List of Requests</h1>
 <br>
 

@@ -9,9 +9,11 @@ class Employees::RequestsController < ApplicationController
   end
 
   def show_all
-    @requests = Request.all
-    #@requests = Request.find(params[:id])
-    #@employee = Employee.find(params[:employee_id])
+    if params[:search]
+      @requests = Request.search(params[:search])  
+    else
+      @requests = Request.all 
+    end
     respond_with(@request)
   end
   
