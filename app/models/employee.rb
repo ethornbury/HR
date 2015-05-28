@@ -10,10 +10,14 @@ class Employee < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }  
                     
-# it seems to work without this, need to find out about this    
-#    def admin?
-#        admin
-#    end
+    def admin?
+      admin
+    end
+    
+    def admin_user  #Confirms an admin user.
+      redirect_to(root_url) unless current_user.admin?
+    end
+    
     def self.import(file)
         CSV.foreach(file.path, headers: true) do |row|
             Employee.create! row.to_hash
@@ -33,4 +37,5 @@ class Employee < ActiveRecord::Base
     # where(:title, query) -> This would return an exact match of the query
        where("lastname like ?", "%#{query}%") 
     end
+    
 end

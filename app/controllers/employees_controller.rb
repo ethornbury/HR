@@ -1,6 +1,7 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
-
+  #before_filter :admin_user,     only: :destroy
+  
   respond_to :html
 
   def index
@@ -52,10 +53,8 @@ class EmployeesController < ApplicationController
 
   def destroy
     flash.clear
-    title = @employee.lastname
-    
     if @employee.destroy
-      flash[:notice] = "#{title} has been deleted successfully."
+      flash[:notice] = "Deleted successfully."
       respond_with(@employee)
     else
       flash[:error] = "There was a problem with that request"
@@ -73,7 +72,17 @@ class EmployeesController < ApplicationController
     end  
   end
   
+   
+  
   private
+    def admin_user  #Confirms an admin user.
+      redirect_to(root_url) unless current_user.admin?
+    end
+    
+    def admin?
+      admin
+    end 
+    
     def set_employee
       @employee = Employee.find(params[:id])
     end
