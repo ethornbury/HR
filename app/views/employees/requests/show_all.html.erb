@@ -49,10 +49,18 @@
           <td><%= request.id %></td>
           <td>
         
-          <%= select_tag(:status, options_for_select([['Pending', '1'],
+          <%#= select(:status, options_for_select([['Pending', '1'],
                                   ['Approved', '2'],
                                   ['Denied', '3']]),
                                   :class => 'btn btn-default') %>
+           
+          <%#= form_tag(requests_path, :method => 'put') do %>
+             <%= select_tag(:status, options_for_select([['Pending', '1'],
+                                  ['Approved', '2'],
+                                  ['Denied', '3']]),
+                                  :class => 'btn btn-default') %>
+             <%#= submit_tag 'Submit' %>
+          <%# end %>              
           </td>
         </tr>
         <% end %>
