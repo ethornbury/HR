@@ -15,7 +15,8 @@
           <!--<li class="active"><a href="#">Home</a></li>-->
           <li><%= link_to "Home",       root_path %></li>
           <li><%= link_to "About",      about_path %></li>
-          <% if current_user %>
+          <%# if current_user %>
+          <% if user_signed_in? %>
             <li><%= link_to "Employees",  employees_path %></li>
             <li><%= link_to "Requests",   show_all_path %></li>
             <li><%= link_to "Reports",    reports_path %></li>

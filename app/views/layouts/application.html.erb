@@ -18,7 +18,11 @@
   </head>
   <body>
     <%= render 'layouts/navmenu' %> 
-  
+    
+    <!-- used for debugging in development to check variables being passed correctly -->
+    <pre>current user id <%= @user_id.to_yaml %></pre> 
+    <pre>current user email <%= @email.to_yaml %></pre> 
+   
     <div class="container">
       <% flash.each do |name, msg| %>
         <%= content_tag :div, :class => "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", :role => "alert" do %>
