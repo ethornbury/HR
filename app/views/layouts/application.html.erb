@@ -18,7 +18,16 @@
   </head>
   <body>
     <%= render 'layouts/navmenu' %> 
-  
+    
+    <!-- used for debugging in development to check variables -->
+    <!--
+    <pre>user admin status
+      <%# if user_signed_in? %>
+        <%#= current_user.admin.to_yaml %>
+      <%# end %>
+    </pre> 
+    -->
+    
     <div class="container">
       <% flash.each do |name, msg| %>
         <%= content_tag :div, :class => "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", :role => "alert" do %>
@@ -33,6 +42,7 @@
       
       <%#= debug(params) if Rails.env.development? %>
       <!-- the above line created a boxof info that I used to help in development -->
+     
      </div>
   </body>
 </html>

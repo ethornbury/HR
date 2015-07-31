@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+  setup do
+    sign_in users(:one)
+    @employee = employees(:one)
+  end
+  
   test "should get home" do
     get :home
     assert_response :success
@@ -10,9 +16,21 @@ class StaticPagesControllerTest < ActionController::TestCase
     get :contact
     assert_response :success
   end
+  
+  test "should get report" do
+    get :report
+    assert_response :success
+  end
 
   test "should get about" do
     get :about
+    assert_response :success
+  end
+  test "download_pdf" do
+    assert_response :success
+  end
+  
+  test "show_pdf" do
     assert_response :success
   end
 

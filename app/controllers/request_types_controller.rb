@@ -1,6 +1,10 @@
 class RequestTypesController < ApplicationController
   before_action :set_request_type, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user! 
+  #only authenticated user (created by devise engine) can access the methods below
+  before_action :ensure_admin, only: [:destroy]
+  #only admin user can delete, the is found in the application_helper.rb
+  
   respond_to :html
 
   def index

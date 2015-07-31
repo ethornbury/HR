@@ -20,7 +20,7 @@
     <table class="table table-hover table-responsive">
       <thead>
         <tr>
-          <th>Employee Id</th>
+          <th>Employee</th>
           <th>Request for</th>
           <th>Start Date</th>
           <th>End Date</th>
@@ -32,7 +32,7 @@
       <tbody>
         <% @requests.each do |request| %>
         <tr>
-          <td><%= request.employee_id %></td>
+          <td><%= request.employee.firstname %> <%= request.employee.lastname %></td>
           <td><%= request.request_desc %></td>
           <td><%= request.startDate.strftime("%d-%m-%Y")  %></td>
           <td><%= request.endDate.strftime("%d-%m-%Y")  %></td>
@@ -47,21 +47,7 @@
             <% end %>
           </td>
           <td><%= request.id %></td>
-          <td>
-        
-          <%#= select(:status, options_for_select([['Pending', '1'],
-                                  ['Approved', '2'],
-                                  ['Denied', '3']]),
-                                  :class => 'btn btn-default') %>
-           
-          <%#= form_tag(requests_path, :method => 'put') do %>
-             <%= select_tag(:status, options_for_select([['Pending', '1'],
-                                  ['Approved', '2'],
-                                  ['Denied', '3']]),
-                                  :class => 'btn btn-default') %>
-             <%#= submit_tag 'Submit' %>
-          <%# end %>              
-          </td>
+          
         </tr>
         <% end %>
       </tbody>

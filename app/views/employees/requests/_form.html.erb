@@ -44,7 +44,7 @@
           <%= f.date_select :endDate, class: 'form-control' %>
       </div>
   
-      <%# if @employee.admin && current_user %>   
+      <% if current_user.try(:admin?) %> <!-- only visible to admin user -->   
         <div class="control-group">
           <%= f.label :status, class: 'control-label' %><br>
           <%= f.select(:status, options_for_select([['Pending', '1'],
@@ -55,7 +55,7 @@
         </div>
         <br>
       
-      <%# end %>
+      <% end %>
      
          <div class="control-group">
            <div class="controls">

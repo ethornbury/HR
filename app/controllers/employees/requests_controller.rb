@@ -1,6 +1,10 @@
 class Employees::RequestsController < ApplicationController
-  #before_action :set_request, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_request, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user! 
+  #only authenticated user (created by devise engine) can access the methods below
+  before_action :ensure_admin, only: [:destroy]
+  #only admin user can delete, the is found in the application_helper.rb
+  
   respond_to :html
 
   def index
@@ -30,7 +34,6 @@ class Employees::RequestsController < ApplicationController
   def edit
     @request = Request.find(params[:id])
     @employee = Employee.find(params[:employee_id])
-    #@request = @employee.request.find(params[:id])
   end
   
   def create
@@ -49,11 +52,12 @@ class Employees::RequestsController < ApplicationController
   end
 
   def update
+    @employee = Employee.find(params[:employee_id])
     @request = Request.find(params[:id])
-    @request = @employee.request.find(params[:id])
-
+    
     @request.update(request_params)
-    respond_with(@request, @employee)
+
+    respond_with(@employee)
   end
  
   def destroy

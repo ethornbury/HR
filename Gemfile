@@ -60,6 +60,9 @@ gem 'quiet_assets', group: :development
 
 group :development,:test do 
     gem 'sqlite3'
+    #below gems are to help write tests
+    gem 'shoulda-matchers'
+    gem 'shoulda'
 end
 
 group:production do

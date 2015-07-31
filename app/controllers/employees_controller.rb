@@ -1,6 +1,9 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
-  #before_filter :admin_user,     only: :destroy
+  before_action :authenticate_user! 
+  #only authenticated user (created by devise engine) can access the methods below
+  before_action :ensure_admin, only: [:destroy, :new]
+  #only admin user can delete or create
   
   respond_to :html
 
@@ -71,8 +74,6 @@ class EmployeesController < ApplicationController
       redirect_to employees_path, flash[:danger] = "Invalid import, check your CSV file."
     end  
   end
-  
-   
   
   private
     def admin_user  #Confirms an admin user.

@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class RequestsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+  setup do
+    sign_in users(:one)
+    @employee = employees(:one)
+  end
+  
   setup do
     @request = requests(:one)
   end

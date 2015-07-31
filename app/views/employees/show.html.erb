@@ -42,26 +42,30 @@
       <tbody>
         
         <% @requests.each do |request| %>
-        <tr>
-          <td><%= request.request_desc %></td>
-          <td><%= request.startDate.strftime("%d-%m-%Y")  %></td>
-          <td><%= request.endDate.strftime("%d-%m-%Y")  %></td>
-          <td>
-            <%#= request.status %>
-            <% if request.status == 1 %>
-              <%= 'Pending' %>
-            <% elsif request.status == 2 %>
-              <%= 'Approved' %>
-            <% elsif request.status == 3 %>
-              <%= 'Denied' %>
-            <% end %>
-          </td>
-          <td><%= request.id %></td>
-          <td><%#= link_to 'edit', request_path(@request) %></td>
-          <td><%#= link_to 'edit', edit_employee_request_path(@employee, @request) %></td>
-          <td><%= link_to 'Edit- broken', [:edit, @employee, request], :class => 'btn btn-default' %></td>
-          <td><%= link_to 'Delete', [@employee, request], method: :delete, :class => 'btn btn-default', data: { confirm: "Are you sure?" } %></td>
-        </tr>
+          <tr>
+            <td><%= request.request_desc %></td>
+            <td><%= request.startDate.strftime("%d-%m-%Y")  %></td>
+            <td><%= request.endDate.strftime("%d-%m-%Y")  %></td>
+            <td>
+              <%#= request.status %>
+              <% if request.status == 1 %>
+                <%= 'Pending' %>
+              <% elsif request.status == 2 %>
+                <%= 'Approved' %>
+              <% elsif request.status == 3 %>
+                <%= 'Denied' %>
+              <% end %>
+            </td>
+            <td><%= request.id %></td>
+            
+            <% if current_user.try(:admin?) %> <!-- only visible to admin user --> 
+              <td><%= link_to 'Edit/Approve', [:edit, @employee, request], :class => 'btn btn-default' %></td>
+            <% else %>
+              <td><%= link_to 'Edit', [:edit, @employee, request], :class => 'btn btn-default' %></td>
+            <% end %>  
+            <td><%= link_to 'Delete', [@employee, request], method: :delete, :class => 'btn btn-default', data: { confirm: "Are you sure?" } %></td>
+          
+          </tr>
         <% end %>
         
       </tbody>

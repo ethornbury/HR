@@ -9,14 +9,6 @@ class Employee < ActiveRecord::Base
                     length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }  
-                    
-    def admin?
-      admin
-    end
-    
-    def admin_user  #Confirms an admin user.
-      redirect_to(root_url) unless current_user.admin?
-    end
     
     def self.import(file)
         CSV.foreach(file.path, headers: true) do |row|
@@ -34,7 +26,7 @@ class Employee < ActiveRecord::Base
     end 
     
     def self.search(query)
-    # where(:title, query) -> This would return an exact match of the query
+    # where(:title, query) -> This would return an exact match of the query, below is for similar
        where("lastname like ?", "%#{query}%") 
     end
     

@@ -1,15 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  type: 
-  startDate: 2015-05-13 06:40:23
-  endDate: 2015-05-13 06:40:23
-  status: MyString
-  Employee_id: 
+  startDate: 2015-05-13 
+  endDate: 2015-05-13
+  status: 1
 
 two:
-  type: 
-  startDate: 2015-05-13 06:40:23
-  endDate: 2015-05-13 06:40:23
-  status: MyString
-  Employee_id: 
+  startDate: 2015-05-13
+  endDate: 2015-05-13
+  status: 2
