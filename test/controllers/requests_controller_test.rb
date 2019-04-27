@@ -34,6 +34,11 @@ class RequestsControllerTest < ActionController::TestCase
     get :show, id: @request
     assert_response :success
   end
+  
+  test "should show_all request" do
+    get :show_all, id: @request
+    assert_response :success
+  end
 
   test "should get edit" do
     get :edit, id: @request

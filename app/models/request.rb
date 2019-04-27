@@ -7,6 +7,9 @@ class Request < ActiveRecord::Base
   def self.search(query)
     # where(:title, query)  #This would return an exact match of the query
     where("status like ?", "%#{query}%")  #will return on partial and not case sensitive
+    
+    #return an exact integer match of the query
+    #where("status = ?", "#{query}")
   end
   
 end
